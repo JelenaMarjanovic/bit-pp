@@ -1,5 +1,5 @@
 /*
- * Check if input is a number and if the answer is no, print 'ERROR!'.
+ * Write a program to check if input is a number and if the answer is no, print 'ERROR!'.
  * The additional condition is if it is a two-digit number.
  * If both conditions are true, print "mirror image" of given number.
  * If it is not two-digit number, return the right information.

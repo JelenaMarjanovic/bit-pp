@@ -1,3 +1,8 @@
+/* 
+ * Write a conditional statement to find the largest of five numbers.
+ * Display the result in console.
+ */
+
 var a = -5;
 var b = -2;
 var c = -6;

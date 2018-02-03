@@ -1,5 +1,10 @@
-var a;  // 3, 11, 7
-var b;  // 5, 1, 7
+/* 
+ * Write a program that compares two numbers and display the larger.
+ * Result should be displayed in the console.
+ */
+
+var a;      // 3, 11, 7
+var b;      // 5, 1, 7
 var result = '';
 
 if(a > b) {
