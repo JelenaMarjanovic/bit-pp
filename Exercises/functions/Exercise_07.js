@@ -11,3 +11,4 @@ function numDigits(num) {
 }
 
 console.log("A number of digits of a given number is: " + numDigits(1234560));
+console.log("A number of digits of a given number is: " + numDigits(53));
