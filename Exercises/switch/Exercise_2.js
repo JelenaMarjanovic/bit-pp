@@ -1,5 +1,6 @@
 var day = 3;
-result = '';
+
+var result = '';
 
 switch (day) {
     case 1:
@@ -24,7 +25,8 @@ switch (day) {
         result = 'Sunday';
         break;
     default:
-        result = 'Wrong input!';
+        result = 'Input must be a number between 1 and 7.';
+        break;
 }
 
 console.log(result);
