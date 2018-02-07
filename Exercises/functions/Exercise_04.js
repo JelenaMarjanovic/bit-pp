@@ -1,14 +1,15 @@
 /* function arithmetic(a, b, c, d) {
-    return (a + b + c+ d) / 4;
+    return (a + b + c + d) / 4;
 } */
 
 function arithmetic() {
     var sum = 0;
-    for(var i = 0; i < arguments.length; i++) {
+    for (var i = 0; i < arguments.length; i++) {
         sum += arguments[i];
     }
 
     return sum / arguments.length;
 }
 
-console.log(arithmetic(1, 3, 5, 7, 11));
+console.log("An arithmetic mean is: " + arithmetic(1, 3, 5, 7));
+console.log("An arithmetic mean is: " + arithmetic(1, 3, 5, 7, 11));
