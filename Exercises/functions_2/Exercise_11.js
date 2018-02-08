@@ -1,11 +1,12 @@
-function arrayStringstoNumbers(array) {
+function arrayStringsToNumbers(array) {
     var result = [];
 
-    for (var i = 0; i < array.length; i++) {
+    for (var i = 0, j = 0; i < array.length; i++) {
         var currentElement = parseFloat(array[i]);
 
         if (!isNaN(currentElement) && isFinite(currentElement)) {
-            result[i] = currentElement;
+            result[j] = currentElement;
+            j++;
         }
     }
 
@@ -13,6 +14,6 @@ function arrayStringstoNumbers(array) {
 }
 
 var arr = ["1", "21", undefined, "42", "1e+3", Infinity, NaN, "abc"];
-arrayStringstoNumbers(arr);
+arrayStringsToNumbers(arr);
 
-// Doesn't work properly with undefines!
+// Doesn't work properly with undefined!

@@ -1,6 +1,6 @@
 function concatenateNTimes(string, num) {
     var result = '';
-    console.log(num);
+    
     if (typeof num === "undefined") {
         return string;
     } else {
@@ -11,5 +11,5 @@ function concatenateNTimes(string, num) {
     }
 }
 
-console.log("Ha");
-console.log("Ha", 3);
+console.log(concatenateNTimes("Ha"));
+console.log(concatenateNTimes("Ha", 3));
