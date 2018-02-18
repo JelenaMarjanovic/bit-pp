@@ -1,3 +1,5 @@
+"use strict"
+
 function letterAppears(string) {
     var counter = 0;
 

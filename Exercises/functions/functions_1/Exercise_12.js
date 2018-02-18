@@ -1,3 +1,5 @@
+"use strict"
+
 function retirement(currentYear, birthYear, gender) {
     var age = currentYear - birthYear;
     var result = '';

@@ -1,3 +1,5 @@
+"use strict"
+
 function numDigits(num) {
     var digits = 0;
 

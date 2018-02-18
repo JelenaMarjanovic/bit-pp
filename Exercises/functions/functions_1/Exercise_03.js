@@ -1,3 +1,5 @@
+"use strict"
+
 function threeDig(num) {
     if (num > 99 && num < 1000) {
         console.log(num + " is a three-digit number.");

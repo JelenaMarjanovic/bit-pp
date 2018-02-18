@@ -1,3 +1,5 @@
+"use strict"
+
 function sumOddElem(array) {
     var sum = 0;
 

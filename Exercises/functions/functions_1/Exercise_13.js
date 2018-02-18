@@ -1,3 +1,5 @@
+"use strict"
+
 function humanizeNumber(num) {
     if (num % 100 >= 11 && num <= 13) {
         return num + 'th';

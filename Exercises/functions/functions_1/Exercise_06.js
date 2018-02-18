@@ -1,3 +1,5 @@
+"use strict"
+
 function chart(first, second, third) {
     var result = '';
 

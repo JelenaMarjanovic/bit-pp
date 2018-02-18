@@ -1,3 +1,5 @@
+"use strict"
+
 function appearance(num, array) {
     var counter = 0;
 

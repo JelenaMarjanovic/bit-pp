@@ -1,3 +1,5 @@
+"use strict"
+
 /* function arithmetic(a, b, c, d) {
     return (a + b + c + d) / 4;
 } */

@@ -1,3 +1,5 @@
+"use strict"
+
 function concatenate(string, num) {
     var result = '';
 
