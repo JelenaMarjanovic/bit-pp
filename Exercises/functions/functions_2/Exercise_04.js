@@ -1,3 +1,5 @@
+"use strict"
+
 function letterOccurences(string, letter) {
     var counter = 0;
 

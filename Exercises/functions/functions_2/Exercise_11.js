@@ -1,3 +1,5 @@
+"use strict"
+
 function arrayStringsToNumbers(array) {
     var result = [];
 

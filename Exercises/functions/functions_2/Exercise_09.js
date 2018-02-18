@@ -1,3 +1,5 @@
+"use strict"
+
 function replaceSpaceWithSeparator(string, separator) {
     var result = '';
 

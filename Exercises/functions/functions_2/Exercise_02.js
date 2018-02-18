@@ -1,3 +1,5 @@
+"use strict"
+
 function isStringBlank(string) {
     return string === ' ';
 }

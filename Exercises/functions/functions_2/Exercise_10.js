@@ -1,3 +1,5 @@
+"use strict"
+
 function threeDots(string, num) {
     var result = '';
 

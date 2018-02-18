@@ -1,6 +1,8 @@
+"use strict"
+
 function concatenateNTimes(string, num) {
     var result = '';
-    
+
     if (typeof num === "undefined") {
         return string;
     } else {

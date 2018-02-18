@@ -1,3 +1,5 @@
+"use strict"
+
 function findFirstOccurence(string, char) {
     var firstPosition = -1;
 

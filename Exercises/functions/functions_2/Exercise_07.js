@@ -1,3 +1,5 @@
+"use strict"
+
 function stringToArray(string) {
     var array = [];
 

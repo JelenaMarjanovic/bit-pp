@@ -1,3 +1,5 @@
+"use strict"
+
 function findLastOccurence(string, char) {
     var lastPosition = -1;
 
