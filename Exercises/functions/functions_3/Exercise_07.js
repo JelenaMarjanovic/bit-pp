@@ -1,3 +1,5 @@
+"use strict"
+
 function perfectNumber(num) {
     if (num % 2 === 0) {
         var sum = 0;

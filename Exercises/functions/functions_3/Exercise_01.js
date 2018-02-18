@@ -1,3 +1,5 @@
+"use strict"
+
 function insertString(string1, string2, position) {
     var result = '';
 
@@ -20,4 +22,3 @@ var str2 = "JS ";
 
 console.log(insertString(str1, str2));
 console.log(insertString(str1, str2, 10));
-

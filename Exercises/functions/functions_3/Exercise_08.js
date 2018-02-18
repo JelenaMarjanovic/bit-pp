@@ -1,3 +1,5 @@
+"use strict"
+
 function findWord(str, word) {
     var counter = 0;
 

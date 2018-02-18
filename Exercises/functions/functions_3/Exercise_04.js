@@ -1,3 +1,5 @@
+"use strict"
+
 function reverseNumber(num) {
     var result = 0;
 

@@ -1,3 +1,5 @@
+"use strict"
+
 function fillArray(len, element) {
     if (typeof element === "undefined") {
         element = null;

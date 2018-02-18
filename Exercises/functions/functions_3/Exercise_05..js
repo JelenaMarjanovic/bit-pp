@@ -1,3 +1,5 @@
+"use strict"
+
 function getLastElements(array, num) {
     if (typeof num === "undefined") {
         return array[array.length - 1];

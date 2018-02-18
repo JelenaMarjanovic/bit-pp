@@ -1,3 +1,5 @@
+"use strict"
+
 function hideEmail(string) {
     var hidden = "";
     var domen = "";
