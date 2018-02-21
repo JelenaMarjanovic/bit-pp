@@ -8,12 +8,9 @@ function allElementsLessThanGivenElement(arr, el) {
     var output = [];
 
     for (var i = 0, j = 0; i < arr.length; i++) {
-
         if (arr[i] < el) {
-            output[j] = arr[i];
-            j++;
+            output.push(arr[i]);
         }
-
     }
 
     return output;

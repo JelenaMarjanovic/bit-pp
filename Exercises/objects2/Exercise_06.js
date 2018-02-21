@@ -46,7 +46,7 @@ function totalPrice(arr) {
 /*  Write a function that calculates the average product price of your shopping list.
     Print this value with the precision of three decimals. */
 
-function averageProductPrice(arr, callback) {
+function averageProductPrice(arr) {
     return "The average product price: " + (totalPrice(arr) / arr.length).toFixed(3);
 }
 
@@ -56,7 +56,7 @@ function averageProductPrice(arr, callback) {
 /*  Write a function that prints out the name of the most expensive product on your shopping list.
     Write the name in uppercase.*/
 
-function mostExpensiveProduct(arr, callbackFunc) {
+function mostExpensiveProduct(arr) {
     return arr.slice().sort(function (o1, o2) {
         return o1.price - o2.price;
     })[arr.length - 1].name.toUpperCase();

@@ -3,23 +3,22 @@
 
 "use strict";
 
-// Using function defined in b)
-function allElementsStartsWithSubstring(element) {
-    return element.substring(0, 3).toLowerCase() === 'pro';
+// Using function similar one defined in b)
+function allElementsContainsSubstring(element) {
+    return element.toLowerCase().indexOf('pro') !== -1;
 }
 
-function filterArray(arr, callbackFunc) {
+function filterArray(arr, testFunc) {
     var output = [];
 
-    for (var i = 0, j = 0; i < arr.length; i++) {
-        if (callbackFunc(arr[i])) {
-            output[j] = arr[i];
-            j++;
+    for (var i = 0; i < arr.length; i++) {
+        if (testFunc(arr[i])) {
+            output.push(arr[i]);
         }
     }
 
     return output;
 }
 
-var a = ['JavaScript', 'Programming', 'fun', 'product'];
-console.log(filterArray(a, allElementsStartsWithSubstring));
+var a = ['JavaScript', 'Programming', 'fun', 'product', 'javaPro'];
+console.log(filterArray(a, allElementsContainsSubstring));

@@ -17,8 +17,8 @@ function daysToBirthday(date) {
         return "Your birthday was " + Math.abs(outputDays) + " day(s) ago.";
     }
 
-    return outputDays;
+    return outputDays + " day(s)";
 }
 
-var myDate = "25 February";
+var myDate = "13 February";
 console.log(daysToBirthday(myDate));

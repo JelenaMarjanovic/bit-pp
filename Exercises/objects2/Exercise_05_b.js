@@ -9,9 +9,8 @@ function allElementsStartsWithSubstring(arr) {
     var output = [];
 
     for (var i = 0, j = 0; i < arr.length; i++) {
-        if (arr[i].substring(0, 3).toLowerCase() === 'pro') {
-            output[j] = arr[i];
-            j++;
+        if (arr[i].toLowerCase().indexOf('pro') === 0) {
+            output.push(arr[i]);
         }
     }
 
