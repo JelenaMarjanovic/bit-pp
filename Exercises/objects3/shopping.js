@@ -10,7 +10,7 @@
 
         this.getInfo = function () {
             return (this.name[0] + this.name[name.length - 1]).toUpperCase() + this.product_id + ",  " + this.name + ", " + this.price;
-        }
+        };
     }
 
     function ShoppingBag() {
@@ -22,25 +22,21 @@
             if (product.expirationDate.getTime() > currentDate.getTime()) {
                 this.productList.push(product);
             }
-        }
+        };
 
         this.calculateTotalPrice = function () {
             var sum = 0;
-
-            // for (var i = 0; i < this.productList.length; i++) {
-            //     sum += this.productList[i].price;
-            // }
 
             this.productList.forEach(function (element) {
                 sum += element.price;
             });
 
             return sum;
-        }
+        };
 
         this.averageProductPrice = function () {
             return (this.calculateTotalPrice() / this.productList.length).toFixed(3);
-        }
+        };
 
         this.getMostExpensive = function (arr) {
             var sortedProductList = this.productList.slice().sort(function (o1, o2) {
@@ -49,7 +45,7 @@
             var lastElement = this.productList.length - 1;
 
             return sortedProductList[lastElement].getInfo();
-        }
+        };
     }
 
     function PaymentCard(accountBalance, status, expireDate) {
@@ -60,12 +56,12 @@
 
 
     function checkoutAndBuy(shoppingBag, paymentCard) {
-        if (paymentCard.accountBalance >= shoppingBag.totalProductPrice()) {
+        if (paymentCard.accountBalance >= shoppingBag.calculateTotalPrice()) {
             return "The purchase is successful!";
         }
 
         return "You don't have enough money!\nThe amount that is missing to complete purchase: " +
-            Math.abs(paymentCard.accountBalance - shoppingBag.totalProductPrice()).toFixed(2);
+            Math.abs(paymentCard.accountBalance - shoppingBag.calculateTotalPrice()).toFixed(2);
     }
 
     var banana = new Product('Banana', 12.536, "2019-05-11");
@@ -74,6 +70,7 @@
     var milk = new Product('Milk', 101.4568, "2018-04-08");
 
     var bag = new ShoppingBag();
+
     bag.addProduct(banana);
     bag.addProduct(apple);
     bag.addProduct(cheese);
@@ -83,6 +80,7 @@
     var card2 = new PaymentCard(50.25, 'active', '2020-05-11')
 
     console.log(checkoutAndBuy(bag, card1));
+    console.log();    
     console.log(checkoutAndBuy(bag, card2));
 
 })();
