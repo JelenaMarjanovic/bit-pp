@@ -11,12 +11,10 @@ function removeDuplicates(arr) {
         return a - b;
     });
 
-    for (var i = 0, j = 0; i < arrSort.length; i++) {
+    for (var i = 0; i < arrSort.length; i++) {
         if (arrSort[i] !== arrSort[i + 1]) {
-            output[j] = arrSort[i];
-            j++;
+            output.push(arrSort[i]);
         }
-
     }
 
     return output;

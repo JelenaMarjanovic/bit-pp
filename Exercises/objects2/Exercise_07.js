@@ -65,7 +65,6 @@ function isValidHexColor(str) {
 // console.log(isValidHexColor("#7f9"));
 
 
-
 /*  Write a function that checks if a given number belongs to the interval from 1900 to 2018. */
 
 function belongsFrom1900To2018(num) {

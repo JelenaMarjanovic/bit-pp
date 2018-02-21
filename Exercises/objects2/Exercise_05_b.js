@@ -5,7 +5,7 @@
 
 "use strict";
 
-function allElementsStartsWithSubstring(arr) {
+function allElementsContainsSubstring(arr) {
     var output = [];
 
     for (var i = 0, j = 0; i < arr.length; i++) {
@@ -18,4 +18,4 @@ function allElementsStartsWithSubstring(arr) {
 }
 
 var a = ['JavaScript', 'Programming', 'fun', 'product'];
-console.log(allElementsStartsWithSubstring(a));
+console.log(allElementsContainsSubstring(a));

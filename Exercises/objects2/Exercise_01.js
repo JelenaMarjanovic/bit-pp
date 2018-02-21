@@ -7,10 +7,9 @@
 function duplicateEachElement(arr) {
     var output = [];
 
-    for (var i = 0, j = 0; i < arr.length; i++, j++) {
-        output[j] = arr[i];
-        j++;
-        output[j] = arr[i];
+    for (var i = 0; i < arr.length; i++) {
+        output.push(arr[i]);
+        output.push(arr[i]);
     }
 
     return output;
