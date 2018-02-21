@@ -1,20 +1,26 @@
+/*  Write a function that counts the number of elements less than the middle element.
+    If the given array has an even number of elements, print out an error message. 
+    Input: [-1, 8.1, 3, 6, 2.3, 44, 2.11]
+    Output: 4 */
+
 "use strict";
-// Write a function that counts the number of elements less than the middle element. If the given array has an even number of elements, print out an error message. 
-// Input: [-1, 8.1, 3, 6, 2.3, 44, 2.11]
-// Output: 4
 
 function countElementsLessThanMiddle(arr) {
 
     if (arr.length % 2 === 0) {
-        return "Error";
+        return "Error! The given array has an even number of elements.";
     } else {
-        var j = 0;
+        var counter = 0;
+
         for (var i = 0; i < arr.length; i++) {
             if (arr[i] < arr[(arr.length - 1) / 2]) {
-                j++;
+                counter++;
             }
         }
-        return j;
+
+        return counter;
     }
 }
-console.log(countElementsLessThanMiddle([-1, 8.1, 3, 6, 2.3, 44, 2.11]));
+
+var a = [-1, 8.1, 3, 6, 2.3, 44, 2.11];
+console.log(countElementsLessThanMiddle(a));
