@@ -24,18 +24,22 @@
             }
         }
 
-        this.totalProductPrice = function () {
+        this.calculateTotalPrice = function () {
             var sum = 0;
 
-            for (var i = 0; i < this.productList.length; i++) {
-                sum += this.productList[i].price;
-            }
+            // for (var i = 0; i < this.productList.length; i++) {
+            //     sum += this.productList[i].price;
+            // }
+
+            this.productList.forEach(function (element) {
+                sum += element.price;
+            });
 
             return sum;
         }
 
         this.averageProductPrice = function () {
-            return (this.totalProductPrice() / this.productList.length).toFixed(3);
+            return (this.calculateTotalPrice() / this.productList.length).toFixed(3);
         }
 
         this.getMostExpensive = function (arr) {
@@ -60,8 +64,8 @@
             return "The purchase is successful!";
         }
 
-        return "You don't have enough money!\nThe amount that is missing to complete purchase: "
-            + Math.abs(paymentCard.accountBalance - shoppingBag.totalProductPrice()).toFixed(2);
+        return "You don't have enough money!\nThe amount that is missing to complete purchase: " +
+            Math.abs(paymentCard.accountBalance - shoppingBag.totalProductPrice()).toFixed(2);
     }
 
     var banana = new Product('Banana', 12.536, "2019-05-11");
