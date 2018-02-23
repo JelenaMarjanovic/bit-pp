@@ -2,7 +2,7 @@
 
 (function () {
 
-    var Continent = {
+    const Continent = {
         EUROPE: 'EU',
         ASIA: 'AS',
         AFRICA: 'AF',
@@ -10,6 +10,8 @@
         NORTH_AMERICA: 'NA',
         AUSTRALIA: 'AU'
     };
+
+    Object.freeze(Continent);
 
     function Country(name, odds, continent) {
         this.name = name;
