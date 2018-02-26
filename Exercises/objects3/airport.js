@@ -5,10 +5,10 @@
     function Person(name, surname) {
         this.name = name;
         this.surname = surname;
+    }
 
-        this.getData = function () {
-            return this.name + " " + this.surname;
-        };
+    Person.prototype.getData = function () {
+        return this.name + " " + this.surname;
     }
 
     function Seat(number, category) {
@@ -16,57 +16,57 @@
             return Math.round(((100 - 10) * Math.random()) + 10);
         })();
         this.category = category || "e";
+    }
 
-        this.getData = function () {
-            return this.number + ", " + this.category.toUpperCase();
-        };
+    Seat.prototype.getData = function () {
+        return this.number + ", " + this.category.toUpperCase();
     }
 
     function Passenger(person, seat) {
         this.person = person;
         this.seat = seat;
+    }
 
-        this.getData = function () {
-            return this.seat.getData() + ", " + this.person.getData();
-        };
+    Passenger.prototype.getData = function () {
+        return this.seat.getData() + ", " + this.person.getData();
     }
 
     function Flight(relation, date) {
         this.relation = relation;
         this.date = new Date(date);
         this.listOfPassengers = [];
+    }
 
-        this.getData = function () {
-            return this.date.getDate() + "." + (this.date.getMonth() + 1) + "." + this.date.getFullYear() + ", " + this.relation;
-        };
+    Flight.prototype.getData = function () {
+        return this.date.getDate() + "." + (this.date.getMonth() + 1) + "." + this.date.getFullYear() + ", " + this.relation;
+    }
 
-        this.addPassenger = function (passenger) {
-            this.listOfPassengers.push(passenger);
-        };
+    Flight.prototype.addPassenger = function (passenger) {
+        this.listOfPassengers.push(passenger);
     }
 
     function Airport() {
         this.name = "Nikola Tesla";
         this.listOfFlights = [];
+    }
 
-        this.getData = function () {
-            var airportOutput = "";
-            var numOfPassengers = 0;
+    Airport.prototype.getData = function () {
+        var airportOutput = "";
+        var numOfPassengers = 0;
 
-            this.listOfFlights.forEach(function (flight) {
-                airportOutput += "\n\t" + flight.getData();
-                flight.listOfPassengers.forEach(function (passenger) {
-                    airportOutput += "\n\t\t" + passenger.getData();
-                    numOfPassengers++;
-                });
+        this.listOfFlights.forEach(function (flight) {
+            airportOutput += "\n\t" + flight.getData();
+            flight.listOfPassengers.forEach(function (passenger) {
+                airportOutput += "\n\t\t" + passenger.getData();
+                numOfPassengers++;
             });
+        });
 
-            return "Airport: " + this.name + ", total passengers: " + numOfPassengers + airportOutput;
-        };
+        return "Airport: " + this.name + ", total passengers: " + numOfPassengers + airportOutput;
+    }
 
-        this.addFlight = function (flight) {
-            this.listOfFlights.push(flight);
-        };
+    Airport.prototype.addFlight = function (flight) {
+        this.listOfFlights.push(flight);
     }
 
     function createFlight(relation, date) {

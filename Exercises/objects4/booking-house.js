@@ -23,23 +23,23 @@
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = new Date(dateOfBirth);
+    }
 
-        this.getData = function () {
-            var today = new Date();
-            var personAge = today.getFullYear() - this.dateOfBirth.getFullYear();
+    Person.prototype.getData = function () {
+        var today = new Date();
+        var personAge = today.getFullYear() - this.dateOfBirth.getFullYear();
 
-            return this.name + " " + this.surname + ", " + personAge;
-        };
+        return this.name + " " + this.surname + ", " + personAge;
     }
 
     function Player(person, betAmount, country) {
         this.person = person;
         this.betAmount = betAmount;
         this.country = country.toUpperCase();
+    }
 
-        this.getData = function () {
-            return this.country + ", " + this.betAmount.toFixed(2) + " eur, " + this.person.getData();
-        };
+    Player.prototype.getData = function () {
+        return this.country + ", " + this.betAmount.toFixed(2) + " eur, " + this.person.getData();
     }
 
     function Address(country, city, postalCode, streetAndNumber) {
@@ -47,83 +47,83 @@
         this.city = city;
         this.postalCode = postalCode;
         this.streetAndNumber = streetAndNumber;
+    }
 
-        this.getData = function () {
-            var street = this.streetAndNumber.split(" ")[0];
+    Address.prototype.getData = function () {
+        var street = this.streetAndNumber.split(" ")[0];
 
-            return street + ", " + this.postalCode + " " + this.city;
-        };
+        return street + ", " + this.postalCode + " " + this.city;
     }
 
     function BettingPlace(address) {
         this.address = address;
         this.listOfPlayers = [];
+    }
 
-        this.getNumberOfPlayers = function () {
-            return this.listOfPlayers.length;
-        };
+    BettingPlace.prototype.getNumberOfPlayers = function () {
+        return this.listOfPlayers.length;
+    }
 
-        this.allBets = function () {
-            var sumOfAllBets = 0
+    BettingPlace.prototype.allBets = function () {
+        var sumOfAllBets = 0
 
-            this.listOfPlayers.forEach(function (player) {
+        this.listOfPlayers.forEach(function (player) {
 
-                sumOfAllBets += player.betAmount;
-            });
+            sumOfAllBets += player.betAmount;
+        });
 
-            return sumOfAllBets;
-        };
+        return sumOfAllBets;
+    }
 
-        this.getData = function () {
-            return this.address.getData() + ", sum of all bets: " + this.allBets().toFixed(2) + " eur";
-        };
+    BettingPlace.prototype.getData = function () {
+        return this.address.getData() + ", sum of all bets: " + this.allBets().toFixed(2) + " eur";
+    }
 
-        this.addPlayer = function (player) {
-            this.listOfPlayers.push(player);
-        };
+    BettingPlace.prototype.addPlayer = function (player) {
+        this.listOfPlayers.push(player);
     }
 
     function BettingHouse(competition) {
         this.competition = competition;
         this.listOfBettingPlaces = [];
+    }
 
-        this.getNumberOfBettingPlaces = function () {
-            return this.listOfBettingPlaces.length;
-        };
+    BettingHouse.prototype.getNumberOfBettingPlaces = function () {
+        return this.listOfBettingPlaces.length;
+    }
 
-        this.getNumberOfAllBets = function () {
-            var numberOfAllBets = 0;
+    BettingHouse.prototype.getNumberOfAllBets = function () {
+        var numberOfAllBets = 0;
 
-            this.listOfBettingPlaces.forEach(function (bettingPlace) {
-                numberOfAllBets += bettingPlace.getNumberOfPlayers();
+        this.listOfBettingPlaces.forEach(function (bettingPlace) {
+            numberOfAllBets += bettingPlace.getNumberOfPlayers();
+        });
+
+        return numberOfAllBets;
+    }
+
+    BettingHouse.prototype.getData = function () {
+        var bettingHouseOutput = "";
+        var betsOnSerbia = 0;
+
+        this.listOfBettingPlaces.forEach(function (bettingPlace) {
+            bettingHouseOutput += "\n\t" + bettingPlace.getData();
+
+            bettingPlace.listOfPlayers.forEach(function (player) {
+
+                bettingHouseOutput += "\n\t\t" + player.getData();
+
+                if (player.country === "SR") {
+                    betsOnSerbia++;
+                }
             });
+        });
 
-            return numberOfAllBets;
-        };
+        return this.competition + ", " + this.getNumberOfBettingPlaces() + " betting places, " + this.getNumberOfAllBets() + " bets" + bettingHouseOutput + "\nThere are " + betsOnSerbia + " bets on Serbia";
+    }
 
-        this.getData = function () {
-            var bettingHouseOutput = "";
-            var betsOnSerbia = 0;
-
-            this.listOfBettingPlaces.forEach(function (bettingPlace) {
-                bettingHouseOutput += "\n\t" + bettingPlace.getData();
-
-                bettingPlace.listOfPlayers.forEach(function (player) {
-
-                    bettingHouseOutput += "\n\t\t" + player.getData();
-
-                    if (player.country === "SR") {
-                        betsOnSerbia++;
-                    }
-                });
-            });
-
-            return this.competition + ", " + this.getNumberOfBettingPlaces() + " betting places, " + this.getNumberOfAllBets() + " bets" + bettingHouseOutput + "\nThere are " + betsOnSerbia + " bets on Serbia";
-        };
-
-        this.addBettingPlace = function (bettingPlace) {
-            this.listOfBettingPlaces.push(bettingPlace);
-        };
+    BettingHouse.prototype.addBettingPlace = function (bettingPlace) {
+        this.listOfBettingPlaces.push(bettingPlace);
     }
 
     function createPlayer(person, betAmount, country) {

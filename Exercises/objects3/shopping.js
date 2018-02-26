@@ -7,45 +7,45 @@
         this.name = name;
         this.price = parseFloat(price.toFixed(2));
         this.expirationDate = new Date(expirationDate);
+    }
 
-        this.getInfo = function () {
-            return (this.name[0] + this.name[name.length - 1]).toUpperCase() + this.product_id + ",  " + this.name + ", " + this.price;
-        };
+    Product.prototype.getInfo = function () {
+        return (this.name[0] + this.name[name.length - 1]).toUpperCase() + this.product_id + ",  " + this.name + ", " + this.price;
     }
 
     function ShoppingBag() {
         this.productList = [];
+    }
 
-        this.addProduct = function (product) {
-            var currentDate = new Date();
+    ShoppingBag.prototype.addProduct = function (product) {
+        var currentDate = new Date();
 
-            if (product.expirationDate.getTime() > currentDate.getTime()) {
-                this.productList.push(product);
-            }
-        };
+        if (product.expirationDate.getTime() > currentDate.getTime()) {
+            this.productList.push(product);
+        }
+    }
 
-        this.calculateTotalPrice = function () {
-            var sum = 0;
+    ShoppingBag.prototype.calculateTotalPrice = function () {
+        var sum = 0;
 
-            this.productList.forEach(function (element) {
-                sum += element.price;
-            });
+        this.productList.forEach(function (element) {
+            sum += element.price;
+        });
 
-            return sum;
-        };
+        return sum;
+    }
 
-        this.averageProductPrice = function () {
-            return (this.calculateTotalPrice() / this.productList.length).toFixed(3);
-        };
+    ShoppingBag.prototype.averageProductPrice = function () {
+        return (this.calculateTotalPrice() / this.productList.length).toFixed(3);
+    }
 
-        this.getMostExpensive = function (arr) {
-            var sortedProductList = this.productList.slice().sort(function (o1, o2) {
-                return o1.price - o2.price;
-            });
-            var lastElement = this.productList.length - 1;
+    ShoppingBag.prototype.getMostExpensive = function (arr) {
+        var sortedProductList = this.productList.slice().sort(function (o1, o2) {
+            return o1.price - o2.price;
+        });
+        var lastElement = this.productList.length - 1;
 
-            return sortedProductList[lastElement].getInfo();
-        };
+        return sortedProductList[lastElement].getInfo();
     }
 
     function PaymentCard(accountBalance, status, expireDate) {

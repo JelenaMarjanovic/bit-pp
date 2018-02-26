@@ -6,10 +6,10 @@
         this.name = name;
         this.surname = surname;
         this.fullName = name + " " + surname;
+    }
 
-        this.getData = function () {
-            return this.fullName;
-        };
+    Person.prototype.getData = function () {
+        return this.fullName;
     }
 
     function Seat(number, category) {
@@ -17,119 +17,119 @@
             return Math.round(((100 - 10) * Math.random()) + 10);
         })();
         this.category = category || "e";
+    }
 
-        this.getData = function () {
-            var categoryName = "";
-            if (this.category == "b") {
-                categoryName = "business";
-            } else {
-                categoryName = "economy";
-            }
+    Seat.prototype.getData = function () {
+        var categoryName = "";
+        if (this.category == "b") {
+            categoryName = "business";
+        } else {
+            categoryName = "economy";
+        }
 
-            return this.number + ", " + categoryName;
-        };
+        return this.number + ", " + categoryName;
     }
 
     function Passenger(person, seat) {
         this.person = person;
         this.seat = seat;
+    }
 
-        this.getData = function () {
-            return this.seat.getData() + ", " + this.person.getData();
-        };
+    Passenger.prototype.getData = function () {
+        return this.seat.getData() + ", " + this.person.getData();
     }
 
     function Flight(relation, date) {
         this.relation = relation;
         this.date = new Date(date);
         this.listOfPassengers = [];
+    }
 
-        this.getNumOfBusinessPassengers = function () {
-            var counter = 0;
+    Flight.prototype.getNumOfBusinessPassengers = function () {
+        var counter = 0;
 
-            this.listOfPassengers.forEach(function (passenger) {
-                if (passenger.seat.category === "b") {
-                    counter++;
+        this.listOfPassengers.forEach(function (passenger) {
+            if (passenger.seat.category === "b") {
+                counter++;
+            }
+        });
+
+        return counter;
+    }
+
+    Flight.prototype.getData = function () {
+        var relation = [];
+        var relationArr = this.relation.slice().split(" - ");
+
+        relationArr.forEach(function (city) {
+            var cityArr = city.split("");
+            var firstConsonant = cityArr[0];
+            var lastConsonant = "";
+
+            cityArr.forEach(function (letter) {
+                if (!(/^[aeiou]$/i).test(letter)) {
+                    lastConsonant = letter;
                 }
             });
 
-            return counter;
-        };
-
-        this.getData = function () {
-            var relation = [];
-            var relationArr = this.relation.slice().split(" - ");
-
-            relationArr.forEach(function (city) {
-                var cityArr = city.split("");
-                var firstConsonant = cityArr[0];
-                var lastConsonant = "";
-
-                cityArr.forEach(function (letter) {
-                    if (!(/^[aeiou]$/i).test(letter)) {
-                        lastConsonant = letter;
-                    }
-                });
-
-                relation.push(firstConsonant + lastConsonant.toUpperCase());
-            });
+            relation.push(firstConsonant + lastConsonant.toUpperCase());
+        });
 
 
-            return this.date.getDate() + "." + (this.date.getMonth() + 1) + "." + this.date.getFullYear() + ", " + relation.join(" - ");
-        };
+        return this.date.getDate() + "." + (this.date.getMonth() + 1) + "." + this.date.getFullYear() + ", " + relation.join(" - ");
+    }
 
-        this.addPassenger = function (passenger) {
-            if (this.listOfPassengers.length === 100) {
-                console.log("This flight is full!\n");
+    Flight.prototype.addPassenger = function (passenger) {
+        if (this.listOfPassengers.length === 100) {
+            console.log("This flight is full!\n");
+            return;
+        }
+
+        for (var i = 0; i < this.listOfPassengers.length; i++) {
+            if (passenger.seat.number === this.listOfPassengers[i].seat.number) {
+                console.log("Two passengers can not have the same seat number!\n");
                 return;
             }
 
-            for (var i = 0; i < this.listOfPassengers.length; i++) {
-                if (passenger.seat.number === this.listOfPassengers[i].seat.number) {
-                    console.log("Two passengers can not have the same seat number!\n");
-                    return;
-                }
+            if (passenger.person.fullName === this.listOfPassengers[i].person.fullName) {
 
-                if (passenger.person.fullName === this.listOfPassengers[i].person.fullName) {
-
-                    this.listOfPassengers.splice(i, 1, passenger);
-                    console.log("This passenger's seat is changed.\n");
-                    return;
-                }
+                this.listOfPassengers.splice(i, 1, passenger);
+                console.log("This passenger's seat is changed.\n");
+                return;
             }
+        }
 
-            this.listOfPassengers.push(passenger);
-        };
+        this.listOfPassengers.push(passenger);
     }
 
     function Airport() {
         this.name = "Nikola Tesla";
         this.listOfFlights = [];
+    }
 
-        this.getData = function () {
-            var airportOutput = "";
-            var numOfPassengers = 0;
-            var totalBusinessPassengers = 0;
+    Airport.prototype.getData = function () {
+        var airportOutput = "";
+        var numOfPassengers = 0;
+        var totalBusinessPassengers = 0;
 
-            this.listOfFlights.forEach(function (flight) {
-                var businessPassengersPerFlight = flight.getNumOfBusinessPassengers();
+        this.listOfFlights.forEach(function (flight) {
+            var businessPassengersPerFlight = flight.getNumOfBusinessPassengers();
 
-                airportOutput += "\n\t" + flight.getData() + ", business passengers: " + businessPassengersPerFlight;
+            airportOutput += "\n\t" + flight.getData() + ", business passengers: " + businessPassengersPerFlight;
 
-                flight.listOfPassengers.forEach(function (passenger) {
-                    airportOutput += "\n\t\t" + passenger.getData();
-                    numOfPassengers++;
-                });
-
-                totalBusinessPassengers += businessPassengersPerFlight;
+            flight.listOfPassengers.forEach(function (passenger) {
+                airportOutput += "\n\t\t" + passenger.getData();
+                numOfPassengers++;
             });
 
-            return "Airport: " + this.name + ", total passengers: " + numOfPassengers + ", business passengers: " + totalBusinessPassengers + airportOutput;
-        };
+            totalBusinessPassengers += businessPassengersPerFlight;
+        });
 
-        this.addFlight = function (flight) {
-            this.listOfFlights.push(flight);
-        };
+        return "Airport: " + this.name + ", total passengers: " + numOfPassengers + ", business passengers: " + totalBusinessPassengers + airportOutput;
+    }
+
+    Airport.prototype.addFlight = function (flight) {
+        this.listOfFlights.push(flight);
     }
 
     function createFlight(relation, date) {
