@@ -1,53 +1,54 @@
 "use strict";
+
+// Gloval variable: list of all movies
 var listOfMovies = [];
-var movieSelector = document.querySelector("select-movie");
+
+// Get and create DOM nodes
+var movieDiv = document.querySelector(".movie-list");
+var movieList = document.createElement("ul");
+movieDiv.appendChild(movieList);
+
 var programDiv = document.querySelector(".program-list");
 var programList = document.createElement("ul");
+programDiv.appendChild(programList);
+
+// Get dropdown menu from DOM for each: movie and program
+var movieSelector = document.querySelector("select-movie");
+var programSelector = document.querySelector("select-program");
 
 function Movie(title, length, genre) {
     this.title = title;
     this.length = parseInt(length);
     this.genre = genre;
-
-}
-
-function Program(date) {
-    this.date = new Date(date);
-
-}
-
-Program.prototype.getData = function () {
-    var programDuration = 0;
-    var numOfMovies = listOfMovies.length;
-
-
-    for (var i = 0; i < listOfMovies.length; i++) {
-        programDuration += listOfMovies[i].length;
-    }
-
-    return this.date.getDate() + "." + (this.date.getMonth() + 1) + "." + this.date.getFullYear() + ", " + numOfMovies + " movies, duration: " + programDuration + "min";
 }
 
 Movie.prototype.getData = function () {
     return this.title + ", " + this.length + "min, " + this.genre;
 }
 
-document.querySelector("#create-movie").addEventListener("click", function () {
-    createMovie();
-})
+function Program(date) {
+    this.date = new Date(date);
+}
 
-var movieDiv = document.querySelector(".movie-list");
-var movieList = document.createElement("ul");
-movieDiv.appendChild(movieList);
+Program.prototype.getData = function () {
+    var programDuration = 0;
+    var numOfMovies = listOfMovies.length;
 
+    listOfMovies.forEach(function (movie) {
+        programDuration += movie.length;
+    });
+
+    return this.date.getDate() + "." + (this.date.getMonth() + 1) + "." + this.date.getFullYear() + ", " + numOfMovies + " movies, duration: " + programDuration + "min";
+}
+
+// Create movie and put in select > option
 function createMovie() {
     var title = document.querySelector("#movie-title").value;
     var length = document.querySelector("#movie-length").value;
     var formSelect = document.querySelector("#movie-genre");
-    var genre = formSelect.options[formSelect.selectedIndex].text;
+    var genre = formSelect.options[formSelect.selectedIndex].value;
 
     var movie = new Movie(title, length, genre);
-
 
     var movieItem = document.createElement("li");
     var movieText = document.createTextNode(movie.getData());
@@ -55,18 +56,15 @@ function createMovie() {
     movieItem.appendChild(movieText);
     movieList.appendChild(movieItem);
 
-
     listOfMovies.push(movie);
-
 }
 
+// Create movie on-click and push it to the dropdown menu
+document.querySelector("#create-movie").addEventListener("click", function () {
+    createMovie();
+});
 
-programDiv.appendChild(programList);
-
-document.querySelector("#create-program").addEventListener("click", function () {
-    createProgram();
-})
-
+// Create program and put in select > option
 function createProgram() {
     var date = document.querySelector("#program-date").value;
 
@@ -79,6 +77,12 @@ function createProgram() {
     programList.appendChild(programItem);
 }
 
+// Create a program on-click and push it to the dropdown menu
+document.querySelector("#create-program").addEventListener("click", function () {
+    createProgram();
+});
+
+// Add movie to program on-click
 function addMovieToProgram() {
 
 }
