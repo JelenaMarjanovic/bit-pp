@@ -1,0 +1,64 @@
+.container {
+    display: block;
+    box-sizing: border-box;
+    width: 75%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+fieldset:nth-of-type(1) {
+    margin-bottom: 20px;
+}
+
+form {
+    padding: 15px;
+    background-color: #ececec;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+select,
+input {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    color: #272727;
+}
+
+input[type="submit"] {
+    background-color: #63cc63;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid rgb(100, 173, 241);
+}
+
+#movie-genre,
+#select-movie,
+#select-program {
+    margin-bottom: 20px;
+    border: none;
+    padding: 3px;
+    background-color: #bdb8b8;
+    color: #fff;
+}
+
+ul li {
+    list-style: none;
+}
+
+.movie-list,
+.program-list {
+    text-align: left;
+    padding: 10px 5px;
+}
