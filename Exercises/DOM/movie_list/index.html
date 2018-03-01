@@ -13,9 +13,11 @@
     <div class="container">
         <h1>Movie festival</h1>
 
+        <!-- Movie fieldset -->
         <fieldset>
             <legend>Movie</legend>
 
+            <!-- Form: Create movie -->
             <form action="" id="movie-form">
                 <label>Title
                     <input type="text" name="" value="" id="movie-title" placeholder="Title" required>
@@ -34,25 +36,32 @@
                 </select>
             </form>
 
+            <!-- Button: Create movie -->
             <input id="create-movie" type="submit" value="Create movie">
 
+            <!-- Display list of created movies -->
             <div class="movie-list"></div>
 
         </fieldset>
 
+        <!-- Program fieldset -->
         <fieldset>
             <legend>Program</legend>
 
+            <!-- Form: Create program -->
             <form action="" id="program-form">
                 <label>Date
                     <input type="date" name="" id="program-date" required>
                 </label>
             </form>
 
+            <!-- Button: Create program -->
             <input id="create-program" type="submit" value="Create program">
 
+            <!-- Display list of created programs -->
             <div class="program-list"></div>
 
+            <!-- Form: Add movie to program -->
             <form action="" id="movie-to-program-form">
                 <label>Movie
                     <select name="" id="select-movie" required>
@@ -67,7 +76,8 @@
                 </label>
             </form>
 
-            <input type="submit" value="Add Movie to Program">
+            <!-- Button: Add movie to program and update list of created programs -->
+            <input id="add-movie-to-program" type="submit" value="Add Movie to Program">
         </fieldset>
     </div>
 
