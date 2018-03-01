@@ -41,6 +41,7 @@ input[type="submit"] {
     padding: 10px;
     font-size: 16px;
     border: 2px solid rgb(100, 173, 241);
+    margin-top: 15px;
 }
 
 #movie-genre,
@@ -49,8 +50,8 @@ input[type="submit"] {
     margin-bottom: 20px;
     border: none;
     padding: 3px;
-    background-color: #bdb8b8;
-    color: #fff;
+    background-color: #d1d1d1;
+    color: #000;
 }
 
 ul li {

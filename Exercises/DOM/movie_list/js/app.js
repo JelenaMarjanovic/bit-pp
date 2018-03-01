@@ -13,8 +13,8 @@ var programList = document.createElement("ul");
 programDiv.appendChild(programList);
 
 // Get dropdown menu from DOM for each: movie and program
-var movieSelector = document.querySelector("select-movie");
-var programSelector = document.querySelector("select-program");
+var movieSelector = document.querySelector("#select-movie");
+var programSelector = document.querySelector("#select-program");
 
 function Movie(title, length, genre) {
     this.title = title;
@@ -43,7 +43,7 @@ Program.prototype.getData = function () {
 
 // Create movie and put in select > option
 function createMovie() {
-    var title = document.querySelector("#movie-title").value;
+    var title = document.querySelector("#movie-title").value.trim();
     var length = document.querySelector("#movie-length").value;
     var formSelect = document.querySelector("#movie-genre");
     var genre = formSelect.options[formSelect.selectedIndex].value;
@@ -55,6 +55,15 @@ function createMovie() {
 
     movieItem.appendChild(movieText);
     movieList.appendChild(movieItem);
+
+    var option = document.createElement("option");
+    var value = title.split(" ").join("-");
+    option.value = value.toLowerCase();
+    var text = document.createTextNode(movie.getData());
+    option.appendChild(text);
+    movieSelector.appendChild(option);
+
+    document.querySelector("#movie-form").reset();
 
     listOfMovies.push(movie);
 }
@@ -75,6 +84,14 @@ function createProgram() {
 
     programItem.appendChild(programText);
     programList.appendChild(programItem);
+
+    var option = document.createElement("option");
+    option.value = date.split("/").join("-");
+    var text = document.createTextNode(program.getData());
+    option.appendChild(text);
+    programSelector.appendChild(option);
+
+    document.querySelector("#program-form").reset();
 }
 
 // Create a program on-click and push it to the dropdown menu
