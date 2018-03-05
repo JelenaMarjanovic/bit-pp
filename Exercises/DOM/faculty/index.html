@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Faculty</legend>
+                <!-- Faculty's name input -->
+                <label>Name</label>
+                <input type="text" name="name" id="faculty-name" placeholder="Faculty name" required>
+                <!-- Error message initialy empty -->
+                <div class="faculty-error error"></div>
+                <!-- Create Faculty object button -->
+                <input type="button" id="create-faculty" value="Create faculty">
+            </fieldset>
+
+            <fieldset>
+                <legend>Professor</legend>
+                <!-- Professor's name input -->
+                <label>Name</label>
+                <input type="text" name="name" id="professor-name" placeholder="Professor name" required>
+                <!-- Professor's surname input -->
+                <label>Surname</label>
+                <input type="text" name="surname" id="professor-surname" placeholder="Professor surname" required>
+                <!-- Professor's office number input -->
+                <label>Office Number</label>
+                <input type="text" name="office-number" id="office-number" placeholder="Office number" required>
+                <!-- Professor's employee ID input -->
+                <label>Employee ID</label>
+                <input type="number" name="employee-id" min="1" id="employee-id" placeholder="Professor employee ID" required>
+                <!-- Professor's salary input -->
+                <label>Salary</label>
+                <input type="number" name="salary" min="0" id="professor-salary" placeholder="Professor salary" required>
+                <!-- Error message initialy empty -->
+                <div class="professor-error error"></div>
+                <!-- Create Professor object button -->
+                <input type="button" id="create-professor" value="Create professor">
+            </fieldset>
+
+            <fieldset>
+                <legend>Student</legend>
+                <!-- Student's name input -->
+                <label>Name</label>
+                <input type="text" name="name" id="student-name" placeholder="Student name" required>
+                <!-- Student's surname input -->
+                <label>Surname</label>
+                <input type="text" name="surname" id="student-surname" placeholder="Student surname" required>
+                <!-- Student's index number input -->
+                <label>Index number</label>
+                <input type="number" name="index-number" min="1" id="index-number" placeholder="Index number" required>
+                <!-- Student's status select dropdown -->
+                <label>Status</label>
+                <select name="status-select" id="status-select" required>
+                    <option value="">-</option>
+                    <option value="regular">Regular</option>
+                    <option value="remote">Remote</option>
+                    <option value="graduated">Graduated</option>
+                </select>
+                <!-- Error message initialy empty -->
+                <div class="student-error error"></div>
+                <!-- Create Professor object button -->
+                <input type="button" id="create-student" value="Create student">
+            </fieldset>
+
+            <fieldset>
+                <legend>Exam</legend>
+                <!-- Exam's subject select dropdown -->
+                <label>Subject</label>
+                <select name="subject" id="exam-subject" required>
+                    <option value="">-</option>
+                    <option value="analysis">Analysis</option>
+                    <option value="algebra">Algebra</option>
+                    <option value="programming">Programming</option>
+                    <option value="oop">Object-Oriented Programming</option>
+                    <option value="geometry">Geometry</option>
+                    <option value="inm">Introduction to Numerical Mathematics</option>
+                    <option value="iml">Introduction to Mathematical Logic</option>
+                    <option value="pas">Probability and Statistics</option>
+                    <option value="ica">Introduction to Complex Analysis</option>
+                    <option value="mti">Measure Theory and Integration</option>
+                    <option value="de">Differential Equations</option>
+                    <option value="ent">Elementary Number Theory</option>
+                    <option value="ta">Theory of Algorithms</option>
+                </select>
+                <!-- Exam's professor select dropdown -->
+                <label>Professor</label>
+                <select name="professor-select" id="professor-select" required>
+                    <option value="">-</option>
+                </select>
+                <!-- Exam's student select dropdown -->
+                <label>Student</label>
+                <select name="student-select" id="student-select" required>
+                    <option value="">-</option>
+                </select>
+                <!-- Exam's grade select dropdown -->
+                <label>Grade</label>
+                <select name="grade-select" id="grade-select" required>
+                    <option value="">-</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <!-- Exam's date -->
+                <label>Date</label>
+                <input type="date" name="date" id="exam-date" required>
+                <!-- Error message initialy empty -->
+                <div class="exam-error error"></div>
+                <!-- Create Exam object button -->
+                <input type="button" id="add-exam" value="Add exam">
+            </fieldset>
+    </div>
+
+    <div>
+        <section id="faculty-header"></section>
+        <section>Professors:
+            <ul id="professors-list"></ul>
+        </section>
+        <section>Students:
+            <ul id="students-list"></ul>
+        </section>
+        <section>
+            <p id="num-of-10"></p>
+        </section>
+    </div>
+
+    <script src="./js/validator.js"></script>
+    <script src="./js/faculty.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
