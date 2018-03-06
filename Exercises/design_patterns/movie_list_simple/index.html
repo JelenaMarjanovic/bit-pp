@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Festival</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Movie festival</h1>
+
+        <!-- Movie fieldset -->
+        <fieldset>
+            <legend>Movie</legend>
+
+            <!-- Form: Create movie -->
+            <form action="" id="movie-form">
+                <label>Title
+                    <input type="text" name="" value="" id="movie-title" placeholder="Title" required>
+                </label>
+
+                <label>Length (min)
+                    <input type="number" name="" value="" id="movie-length" placeholder="Length in min" required>
+                </label>
+
+                <select name="" id="movie-genre" required>
+                    <option value="none">-</option>
+                    <option value="AN">Action</option>
+                    <option value="DA">Drama</option>
+                    <option value="CY">Comedy</option>
+                    <option value="WN">Western</option>
+                </select>
+            </form>
+
+            <!-- Button: Create movie -->
+            <input id="create-movie" type="submit" value="Create movie">
+
+            <!-- Display list of created movies -->
+            <div class="movie-list"></div>
+
+        </fieldset>
+    </div>
+
+    <script src="./js/validator.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
